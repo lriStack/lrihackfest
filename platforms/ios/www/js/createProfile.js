@@ -12,6 +12,7 @@ function deviceReady() {
 
 
 cateData = [];
+recommendedProducts = [];
 
 function displayCategories(categoryData) {
 
@@ -20,7 +21,11 @@ function displayCategories(categoryData) {
     cateData = categoryData;
 
 
-}
+};
+
+function addToProductList(products) {
+    $.merge(products, recommendedProducts);
+};
 
 
 function initHandlers() {
@@ -46,6 +51,16 @@ function initHandlers() {
 
 
     }
+
+    function getRecommendedProductsFromCategory() {
+        var categories = cateData.categories;
+
+        $.each(categories, function(index, value) {
+            GetRecommendedProducts(value.name + "*", "", apiKey, "addToProductList");
+        });
+
+
+    };
 
 
 
