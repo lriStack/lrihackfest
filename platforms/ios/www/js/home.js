@@ -10,12 +10,19 @@ function deviceReady() {
 
 function initHandlers(){
 
-    $('#createProfileBtn').on('touchend',function() {
+    $('#createProfileBtn').click(function() {
+
+        alert('sd');
         //slide to page
 
-//        navigator.pages.slideToPage('createProfile.html');
+        //navigator.pages.flip('createProfile.html');
 
-        document.location = "createProfile.html";
+
+        setTimeout(function() {
+            window.location = "createProfile.html";
+        }, 50);
+
+        nativetransitions.flip(duration, direction);
     });
 }
 
