@@ -1,3 +1,5 @@
+navigator.splashscreen.hide();
+
 
 document.addEventListener('deviceready', deviceReady, false);
 
