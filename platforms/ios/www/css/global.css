@@ -68,6 +68,10 @@ label{
     height: 16px;
     display: block;
 }
+
+
+
+
 input, select, button  {
     width:100%;
     margin:0;
@@ -84,11 +88,15 @@ input[type=text], select {
 
 input[type=checkbox]{
     text-align: left;
+    width: auto;
+    margin-right: 10px;
+    float:left;
+    display: inline-block;
 }
 button{
     font-size: 16px;
     background:#043C63;
-    margin:auto;
+    margin: 50px auto;
     display:block;
     font-famuily: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
     text-transform: uppercase;
@@ -96,7 +104,10 @@ button{
     color: #fff;
 }
 
-
+.billingAddressWrapper{
+    display:block;
+    margin-top:30px;
+}
 /*helpers*/
 .group:after {
     content: "";
@@ -104,3 +115,6 @@ button{
     clear: both;
 }
 
+.hidden{
+    display: none;
+}
