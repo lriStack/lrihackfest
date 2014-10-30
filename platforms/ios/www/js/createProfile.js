@@ -2,6 +2,8 @@
  * Created by andremcdonald on 14-10-29.
  */
 
+navigator.splashscreen.hide();
+
 document.addEventListener('deviceready', deviceReady, false);
 
 function deviceReady() {

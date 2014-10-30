@@ -6,12 +6,20 @@ module.exports = [
         "clobbers": [
             "nativetransitions"
         ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.splashscreen/www/splashscreen.js",
+        "id": "org.apache.cordova.splashscreen.SplashScreen",
+        "clobbers": [
+            "navigator.splashscreen"
+        ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "uk.co.ilee.nativetransitions": "0.1.4"
+    "uk.co.ilee.nativetransitions": "0.1.4",
+    "org.apache.cordova.splashscreen": "0.3.4"
 }
 // BOTTOM OF METADATA
 });
