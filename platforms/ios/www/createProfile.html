@@ -184,61 +184,11 @@
 
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
-<script type="javascript" src="js/createProfile.js"></script>
-
-<script>
-
-    var listFlag = 0;
-
-
-    function yourInterests(){
-        var source = $("#yourInterestsList").html();
-        var template = Handlebars.compile(source);
-
-        var data = {
-            yourLikes: [
-                {
-                    CategoryType: "Camera"
-                },
-                {
-                    CategoryType: "Smart Phone"
-
-                },
-                {
-                    CategoryType: "Tablet"
-                },
-                {
-                    CategoryType: "Computer"
-                }
-            ]
-        };
-
-        if(listFlag === 0){
-            $('body').append(template(data));
-        }
-    }
+<script type="text/javascript" src="js/bestBuyConnector.js"></script>
+<script type="text/javascript" src="js/createProfile.js"></script>
 
 
 
-    var values = [];
-    $('.categoryGrp').click(function (el) {
-        //console.log($(this).attr('checked'));
-        //$('#result').append($(this).attr('value') + ',');
-        values.push($(this).attr('value'));
-        var str = values.join(", ");
-//        alert(str);
-    });
-
-
-    $("#submitBtn").on("click", function(){
-        $("#pickList").show();
-        yourInterests();
-        listFlag = 1;
-
-    });
-
-
-</script>
 
 <script type="text/javascript">
     app.initialize();
