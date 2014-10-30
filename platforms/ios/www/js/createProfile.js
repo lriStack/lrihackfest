@@ -14,9 +14,17 @@ function initHandlers() {
 
     var listFlag = 0;
 
-
     function yourInterests() {
 
+
+        function displayCategories(categoryData) {
+
+            console.log(categoryData);
+
+            if (listFlag === 0) {
+                $('body').append(template(categoryData));
+            }
+        }
 
         var source = $("#yourInterestsList").html();
         var template = Handlebars.compile(source);
@@ -26,11 +34,7 @@ function initHandlers() {
 
         var categoryData = [];
 
-        function displayCategories() {
-            categoryData = listCategories(data);
 
-            console.log(categoryData);
-        }
 
 //        var data = {
 //            yourLikes: [
@@ -50,9 +54,7 @@ function initHandlers() {
 //            ]
 //        };
 
-        if (listFlag === 0) {
-            $('body').append(template(categoryData));
-        }
+
     }
 
 
