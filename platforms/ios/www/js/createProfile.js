@@ -11,19 +11,21 @@ function deviceReady() {
 }
 
 
-
-test = [];
+cateData = [];
+recommendedProducts = [];
 
 function displayCategories(categoryData) {
 
-    alert('2');
-
     console.log(categoryData);
 
+    cateData = categoryData;
 
-}
 
-     test = categoryData ;
+};
+
+function addToProductList(products) {
+    $.merge(products, recommendedProducts);
+};
 
 
 function initHandlers() {
@@ -42,33 +44,24 @@ function initHandlers() {
 
 
 
-        if (listFlag === 0) {
-            $('body').append(template(test));
-        }
-
-
-//        var data = {
-//            yourLikes: [
-//                {
-//                    CategoryType: "Camera"
-//                },
-//                {
-//                    CategoryType: "Smart Phone"
-//
-//                },
-//                {
-//                    CategoryType: "Tablet"
-//                },
-//                {
-//                    CategoryType: "Computer"
-//                }
-//            ]
-//        };
-
-
+        //        if (listFlag === 0) {
+                $('body').append(template(cateData));
+        //        }
+        //
 
 
     }
+
+    function getRecommendedProductsFromCategory() {
+        var categories = cateData.categories;
+
+        $.each(categories, function(index, value) {
+            GetRecommendedProducts(value.name + "*", "", apiKey, "addToProductList");
+        });
+
+
+    };
+
 
 
 
