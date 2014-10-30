@@ -2,11 +2,14 @@
  * Created by andremcdonald on 14-10-30.
  */
 
-//navigator.splashscreen.hide();
+
 
 document.addEventListener('deviceready', deviceReady, false);
 
 function deviceReady() {
+
+    navigator.splashscreen.hide();
+
     initHandlers();
 }
 
@@ -19,6 +22,9 @@ function displayCategories(categoryData) {
     console.log(categoryData);
 
     cateData = categoryData;
+<<<<<<< HEAD
+}
+=======
 
 
 };
@@ -26,6 +32,7 @@ function displayCategories(categoryData) {
 function addToProductList(products) {
     $.merge(products, recommendedProducts);
 };
+>>>>>>> 96a7b3cc35b190d8ced6bb5cbc916828abb7974c
 
 
 function initHandlers() {
@@ -41,13 +48,19 @@ function initHandlers() {
 
         GetCategories("", "", apiKey, "displayCategories");
 
-
-
-
         //        if (listFlag === 0) {
                 $('body').append(template(cateData));
         //        }
         //
+
+
+        var values = [];
+        $('.categoryGrp').click(function (el) {
+            values.push($(this).attr('value'));
+            var str = values.join(", ");
+            //alert(str);
+            localStorage.catList = str;
+        });
 
 
     }
@@ -66,15 +79,6 @@ function initHandlers() {
 
 
 
-    var values = [];
-    $('.categoryGrp').click(function (el) {
-        //console.log($(this).attr('checked'));
-        //$('#result').append($(this).attr('value') + ',');
-        values.push($(this).attr('value'));
-        var str = values.join(", ");
-//        alert(str);
-        localStorage.catList = str;
-    });
 
 
     $("#submitBtn").on("click", function () {
@@ -82,6 +86,10 @@ function initHandlers() {
         yourInterests();
         listFlag = 1;
 
+    });
+
+    $("#suprizeBtn").on("click",function(){
+        document.location = "productSurprize.html";
     });
 
 
