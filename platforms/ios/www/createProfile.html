@@ -163,11 +163,11 @@
         <script id="yourInterestsList" type="text/x-handlebars-template">
 
             <ul>
-                {{#yourLikes}}
-                <li><input type="checkbox" value="{{CategoryType}}" name="options[]" class="categoryGrp"/>
-                    {{CategoryType}}
+                {{#categories}}
+                <li><input type="checkbox" value="{{id}}" name="options[]" class="categoryGrp"/>
+                    {{name}}
                 </li>
-                {{/yourLikes}}
+                {{/categories}}
             </ul>
 
         </script>
@@ -185,6 +185,7 @@
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript" src="js/bestBuyConnector.js"></script>
+<script type="text/javascript" src="js/callbackRenderers.js"></script>
 <script type="text/javascript" src="js/createProfile.js"></script>
 
 

@@ -16,29 +16,42 @@ function initHandlers() {
 
 
     function yourInterests() {
+
+
         var source = $("#yourInterestsList").html();
         var template = Handlebars.compile(source);
+        var apiKey = "s3mse6zmaersezz8nz62sjtz";
 
-        var data = {
-            yourLikes: [
-                {
-                    CategoryType: "Camera"
-                },
-                {
-                    CategoryType: "Smart Phone"
+        GetCategories("", "", apiKey, "displayCategories");
 
-                },
-                {
-                    CategoryType: "Tablet"
-                },
-                {
-                    CategoryType: "Computer"
-                }
-            ]
-        };
+        var categoryData = [];
+
+        function displayCategories() {
+            categoryData = listCategories(data);
+
+            console.log(categoryData);
+        }
+
+//        var data = {
+//            yourLikes: [
+//                {
+//                    CategoryType: "Camera"
+//                },
+//                {
+//                    CategoryType: "Smart Phone"
+//
+//                },
+//                {
+//                    CategoryType: "Tablet"
+//                },
+//                {
+//                    CategoryType: "Computer"
+//                }
+//            ]
+//        };
 
         if (listFlag === 0) {
-            $('body').append(template(data));
+            $('body').append(template(categoryData));
         }
     }
 
@@ -65,7 +78,6 @@ function initHandlers() {
 }
 
 function setchoices() {
-
 
 
 }
