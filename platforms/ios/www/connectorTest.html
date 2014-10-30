@@ -8,12 +8,19 @@
     <script src="js/callbackRenderers.js"></script>
 </head>
 <body>
-    <div id="Results">
-    </div>
-
+    <div id="ProductsResults"></div>
+    <div id="StoresResults"></div>
+    <div id="ReviewsResults"></div>
+    <div id="CategoriesResults"></div>
     <script>
         var apiKey = "s3mse6zmaersezz8nz62sjtz";
         GetProducts("", "", apiKey, "displayProducts");
+
+        GetStores("", "", apiKey, "displayStores");
+
+        GetReviews("", "", apiKey, "displayReviews");
+
+        GetCategories("", "", apiKey, "displayCategories");
     </script>
 </body>
 </html>
