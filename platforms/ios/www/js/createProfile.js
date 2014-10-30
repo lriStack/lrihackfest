@@ -8,7 +8,7 @@ document.addEventListener('deviceready', deviceReady, false);
 
 function deviceReady() {
 
-    navigator.splashscreen.hide();
+   // navigator.splashscreen.hide();
 
     initHandlers();
 }
@@ -59,27 +59,52 @@ function initHandlers() {
 
     }
 
-    function getRecommendedProductsFromCategory() {
-        var categories = cateData.categories;
-
-        $.each(categories, function(index, value) {
-            GetRecommendedProducts(value.name + "*", "", apiKey, "addToProductList");
-        });
-
-
-    };
-
-
+//    function getRecommendedProductsFromCategory() {
+//        var categories = cateData.categories;
+//
+//        $.each(categories, function(index, value) {
+//            GetRecommendedProducts(value.name + "*", "", apiKey, "addToProductList");
+//        });
+//
+//
+//    };
 
 
 
+//    alert("sdfs");
 
 
-    $("#submitBtn").on("click", function () {
-        $("#pickList").show();
+
+    $('#createProfileNextBtn').on('click',function(){
+        location = "preference.html";
+
+    });
+
+    //MAKE ONLOAD
+    $('#getData').click(function(){
         yourInterests();
         listFlag = 1;
 
+    });
+
+    $('#preferenceNextBtn').click(function(){
+        location = "billing.html";
+    });
+
+    $("#submitBtn").on("click", function () {
+        location = "confirmation.html";
+
+    });
+
+    var $billingAddressWrapper = $('#billingAddressWrapper');
+
+    $('#needBillingChkBox').on(' change', function(){
+
+        if($billingAddressWrapper.hasClass('hidden')){
+            $billingAddressWrapper.removeClass('hidden');
+        }else{
+            $billingAddressWrapper.addClass('hidden');
+        }
     });
 
     $("#suprizeBtn").on("click",function(){
@@ -87,9 +112,10 @@ function initHandlers() {
     });
 
 
-}
+    $("#returnToStart").on("click",function(){
+        document.location = "createProfile.html";
+    });
 
-function setchoices() {
 
 
 }
