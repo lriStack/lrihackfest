@@ -2,13 +2,28 @@
  * Created by andremcdonald on 14-10-29.
  */
 
-navigator.splashscreen.hide();
+//navigator.splashscreen.hide();
 
 document.addEventListener('deviceready', deviceReady, false);
 
 function deviceReady() {
     initHandlers();
 }
+
+
+
+test = [];
+
+function displayCategories(categoryData) {
+
+    alert('2');
+
+    console.log(categoryData);
+
+
+}
+
+     test = categoryData ;
 
 
 function initHandlers() {
@@ -18,24 +33,18 @@ function initHandlers() {
 
     function yourInterests() {
 
-
-        function displayCategories(categoryData) {
-
-            console.log(categoryData);
-
-            if (listFlag === 0) {
-                $('body').append(template(categoryData));
-            }
-        }
-
         var source = $("#yourInterestsList").html();
         var template = Handlebars.compile(source);
         var apiKey = "s3mse6zmaersezz8nz62sjtz";
 
         GetCategories("", "", apiKey, "displayCategories");
 
-        var categoryData = [];
 
+
+
+        if (listFlag === 0) {
+            $('body').append(template(test));
+        }
 
 
 //        var data = {
@@ -57,7 +66,11 @@ function initHandlers() {
 //        };
 
 
+
+
     }
+
+
 
 
     var values = [];

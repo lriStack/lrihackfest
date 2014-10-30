@@ -26,7 +26,7 @@ function GetStores(condition, properties, apiKey, callback) {
         .replace(PROPERTIES, properties)
         .replace(API_KEY, apiKey)
         .replace(CALLBACK, callback);
-    CallBestBuyApi(apiUrl);
+    CallBestBuyApi(apiUrl, callback);
 }
 
 function GetReviews(condition, properties, apiKey, callback) {
@@ -34,7 +34,7 @@ function GetReviews(condition, properties, apiKey, callback) {
         .replace(PROPERTIES, properties)
         .replace(API_KEY, apiKey)
         .replace(CALLBACK, callback);
-    CallBestBuyApi(apiUrl);
+    CallBestBuyApi(apiUrl, callback);
 }
 
 function GetCategories(condition, properties, apiKey, callback) {
@@ -42,7 +42,7 @@ function GetCategories(condition, properties, apiKey, callback) {
         .replace(PROPERTIES, properties)
         .replace(API_KEY, apiKey)
         .replace(CALLBACK, callback);
-    CallBestBuyApi(apiUrl);
+    CallBestBuyApi(apiUrl, callback);
 }
 
 function CallBestBuyApi(urlToCall, callback) {
