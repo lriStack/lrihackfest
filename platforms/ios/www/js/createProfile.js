@@ -15,13 +15,24 @@ function deviceReady() {
 
 
 cateData = [];
+recommendedProducts = [];
 
 function displayCategories(categoryData) {
 
     console.log(categoryData);
 
     cateData = categoryData;
+<<<<<<< HEAD
 }
+=======
+
+
+};
+
+function addToProductList(products) {
+    $.merge(products, recommendedProducts);
+};
+>>>>>>> 96a7b3cc35b190d8ced6bb5cbc916828abb7974c
 
 
 function initHandlers() {
@@ -53,6 +64,16 @@ function initHandlers() {
 
 
     }
+
+    function getRecommendedProductsFromCategory() {
+        var categories = cateData.categories;
+
+        $.each(categories, function(index, value) {
+            GetRecommendedProducts(value.name + "*", "", apiKey, "addToProductList");
+        });
+
+
+    };
 
 
 
