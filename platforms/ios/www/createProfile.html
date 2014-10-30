@@ -141,37 +141,40 @@
                         </select>
 
                     <li><label>Zipcode</label> <br/>
-                        <input type="text" id="zipcode" value="11590"></li>
+                        <input type="text" id="zipcode" value="11590">
+                    </li>
                 </ul>
+                <button id="createProfileNextBtn">Next</button>
             </div>
 
 
-
         </div>
-        <div id="preferenceView">
-            <div  id="pickList">
-                <div class="progress"><img src="img/process2.png"></div>
-                <div class="content">
-                    <h2>Your Preferences</h2>
-
-                    <script id="yourInterestsList" type="text/x-handlebars-template">
-
-                        <ul  class="group">
-                            {{#categories}}
-                            <li><input type="checkbox" value="{{id}}" name="options[]" class="categoryGrp"/>
-                                {{name}}
-                            </li>
-                            {{/categories}}
-                        </ul>
-
-                    </script>
-                </div>
 
 
+        <div id="preferenceView" class="hidden">
+
+            <div class="progress"><img src="img/process2.png"></div>
+            <div class="content">
+                <h2>Your Preferences</h2>
+
+                <script id="yourInterestsList" type="text/x-handlebars-template">
+
+                    <ul  class="group">
+                        {{#categories}}
+                        <li><input type="checkbox" value="{{id}}" name="options[]" class="categoryGrp"/>
+                            {{name}}
+                        </li>
+                        {{/categories}}
+                    </ul>
+
+                </script>
+                <button id="preferenceNextBtn">Next</button>
             </div>
 
         </div>
-        <div id="billingView">
+
+
+        <div id="billingView" class="hidden">
             <div class="progress"><img src="img/process3.png"></div>
             <div class="content">
                 <h2>Billing &amp; Shipping</h2>
@@ -183,17 +186,146 @@
                     <li><label>CVV</label> <br/>
                         <input type="text" id="cvv" value="123"></li>
 
-                    <li><label><input type="checkbox" id="chbxAddress"></li> Shipping Address (Same as above)</label>
+                    <li>
 
+                        <label id="needBillingChkBox" class="checkboxLabel"> <input type="checkbox" id="chbxAddress" checked="checked">Shipping Address (Same as above)</label>
+
+                        <ul id="billingAddressWrapper" class="billingAddressWrapper hidden">
+                           <li><label>Address</label> <br/>
+                               <input type="text" name="billingAddress" id="billingAddress" value="123 Hackit Ave"></li>
+                           <li><label>State</label> <br/>
+                               <select name="billingState">
+
+                                   <option value="">Select a State</option>
+
+                                   <option value="AL">Alabama</option>
+
+                                   <option value="AK">Alaska</option>
+
+                                   <option value="AZ">Arizona</option>
+
+                                   <option value="AR">Arkansas</option>
+
+                                   <option value="CA">California</option>
+
+                                   <option value="CO">Colorado</option>
+
+                                   <option value="CT">Connecticut</option>
+
+                                   <option value="DE">Delaware</option>
+
+                                   <option value="DC">District Of Columbia</option>
+
+                                   <option value="FL">Florida</option>
+
+                                   <option value="GA">Georgia</option>
+
+                                   <option value="HI">Hawaii</option>
+
+                                   <option value="ID">Idaho</option>
+
+                                   <option value="IL">Illinois</option>
+
+                                   <option value="IN">Indiana</option>
+
+                                   <option value="IA">Iowa</option>
+
+                                   <option value="KS">Kansas</option>
+
+                                   <option value="KY">Kentucky</option>
+
+                                   <option value="LA">Louisiana</option>
+
+                                   <option value="ME">Maine</option>
+
+                                   <option value="MD">Maryland</option>
+
+                                   <option value="MA" selected="selected">Massachusetts</option>
+
+                                   <option value="MI">Michigan</option>
+
+                                   <option value="MN">Minnesota</option>
+
+                                   <option value="MS">Mississippi</option>
+
+                                   <option value="MO">Missouri</option>
+
+                                   <option value="MT">Montana</option>
+
+                                   <option value="NE">Nebraska</option>
+
+                                   <option value="NV">Nevada</option>
+
+                                   <option value="NH">New Hampshire</option>
+
+                                   <option value="NJ">New Jersey</option>
+
+                                   <option value="NM">New Mexico</option>
+
+                                   <option value="NY">New York</option>
+
+                                   <option value="NC">North Carolina</option>
+
+                                   <option value="ND">North Dakota</option>
+
+                                   <option value="OH">Ohio</option>
+
+                                   <option value="OK">Oklahoma</option>
+
+                                   <option value="OR">Oregon</option>
+
+                                   <option value="PA">Pennsylvania</option>
+
+                                   <option value="RI">Rhode Island</option>
+
+                                   <option value="SC">South Carolina</option>
+
+                                   <option value="SD">South Dakota</option>
+
+                                   <option value="TN">Tennessee</option>
+
+                                   <option value="TX">Texas</option>
+
+                                   <option value="UT">Utah</option>
+
+                                   <option value="VT">Vermont</option>
+
+                                   <option value="VA">Virginia</option>
+
+                                   <option value="WA">Washington</option>
+
+                                   <option value="WV">West Virginia</option>
+
+                                   <option value="WI">Wisconsin</option>
+
+                                   <option value="WY">Wyoming</option>
+
+                               </select>
+
+                           <li><label>Zipcode</label> <br/>
+                               <input type="text" name="billingZipcode" id="billingZipcode" value="11590">
+                       </ul>
+                    </li>
+
+                </li>
 
                 </ul>
+                <button id="submitBtn">Submit</button>
             </div>
 
 
-            <button id="submitBtn">Submit</button>
+
         </div>
 
+<div id="confirmView" class="hidden">
+    <div class="content">
+        <h2>Congrats! You've Sign Up Successfully</h2>
+        <p>A confirmation email was sent to <span id="sentEmail">you</span>!</p>
 
+
+        <button id="returnToStart">Return To Start</button>
+    </div>
+</div>
 
 
     </div>

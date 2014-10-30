@@ -77,12 +77,40 @@ function initHandlers() {
     });
 
 
-    $("#submitBtn").on("click", function () {
-        $("#pickList").show();
+
+
+    $('#createProfileNextBtn').on('click', function(){
+
         yourInterests();
         listFlag = 1;
+        $('#preferenceView').removeClass('hidden');
+       $('#signUpView').addClass('hidden');
 
     });
+
+    $('#preferenceNextBtn').on('click', function(){
+        $('#billingView').removeClass('hidden');
+        $('#preferenceView').addClass('hidden');
+
+    });
+
+    $("#submitBtn").on("click", function () {
+        $('#confirmView').removeClass('hidden');
+        $('#billingView').addClass('hidden');
+        $('#sentEmail').text($('#email').val());
+    });
+
+    var $billingAddressWrapper = $('#billingAddressWrapper');
+
+    $('#needBillingChkBox').on(' change', function(){
+
+        if($billingAddressWrapper.hasClass('hidden')){
+            $billingAddressWrapper.removeClass('hidden');
+        }else{
+            $billingAddressWrapper.addClass('hidden');
+        }
+    });
+
 
 
 }
