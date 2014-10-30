@@ -1,8 +1,5 @@
 /**
- * Created by kylejones on 14-10-29.
- */
-/**
- * Created by kylejones on 14-10-29.
+ * Created by kylejones on 14-10-30.
  */
 var PRODUCTS_URL =  "http://api.remix.bestbuy.com/v1/products{-=CONDITION=-}{-=PROPERTIES=-}?format=json&apiKey={-=API_KEY=-}&callback=?";
 var STORES_URL = "http://api.remix.bestbuy.com/v1/stores{-=CONDITION=-}{-=PROPERTIES=-}?format=json&apiKey={-=API_KEY=-}&callback=?";
