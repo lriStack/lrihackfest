@@ -28,7 +28,7 @@ Make some kind form stuff
     <li><label>State</label>  <br />
         <select name="State">
 
-            <option value="" selected="selected">Select a State</option>
+            <option value="" >Select a State</option>
 
             <option value="AL">Alabama</option>
 
@@ -72,7 +72,7 @@ Make some kind form stuff
 
             <option value="MD">Maryland</option>
 
-            <option value="MA">Massachusetts</option>
+            <option value="MA" selected="selected">Massachusetts</option>
 
             <option value="MI">Michigan</option>
 
@@ -138,22 +138,25 @@ Make some kind form stuff
         <input type="text" id="zipcode" value="11590"></li>
 </ul>
 
+    <button id="submitBtn">Submit</button>
 
 <script id="yourInterestsList" type="text/x-handlebars-template">
+
     <ul>
-        {{#userLikes}}
-        <li>{{CategoryType}}</li>
-        {{/userLikes}}
+        {{#yourLikes}}
+        <li><input type="checkbox" value="{{CategoryType}}" class="categoryGrp" /> {{CategoryType}}</li>
+        {{/yourLikes}}
     </ul>
+
 </script>
 
 
-<button>Submit</button>
+
 
             </div>
 
 <!--LIBS -->
-<script src="jquery-2.1.1.min.js"></script>
+<script src="js/jquery-2.1.1.min.js"></script>
 <script src="js/handlebars-v1.3.0.js"></script>
 
 
@@ -167,7 +170,7 @@ Make some kind form stuff
     var template = Handlebars.compile(source);
 
     var data = {
-        userLikes: [ {
+        yourLikes: [ {
             CategoryType: "Camera"
         }, {
             CategoryType: "Smart Phone"
@@ -183,6 +186,17 @@ Make some kind form stuff
 
 
     $('body').append(template(data));
+
+
+    var values = $('input:checkbox:checked.categoryGrp').map(function () {
+        return this.value;
+    }).get(); // ["18", "55", "10"]
+
+    localStorage.test = values;
+
+
+
+
 </script>
 
 <script type="text/javascript">
