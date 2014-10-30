@@ -11,19 +11,16 @@ function deviceReady() {
 }
 
 
-
-test = [];
+cateData = [];
 
 function displayCategories(categoryData) {
 
-    alert('2');
-
     console.log(categoryData);
+
+    cateData = categoryData;
 
 
 }
-
-     test = categoryData ;
 
 
 function initHandlers() {
@@ -42,33 +39,14 @@ function initHandlers() {
 
 
 
-        if (listFlag === 0) {
-            $('body').append(template(test));
-        }
-
-
-//        var data = {
-//            yourLikes: [
-//                {
-//                    CategoryType: "Camera"
-//                },
-//                {
-//                    CategoryType: "Smart Phone"
-//
-//                },
-//                {
-//                    CategoryType: "Tablet"
-//                },
-//                {
-//                    CategoryType: "Computer"
-//                }
-//            ]
-//        };
-
-
+        //        if (listFlag === 0) {
+                $('body').append(template(cateData));
+        //        }
+        //
 
 
     }
+
 
 
 
