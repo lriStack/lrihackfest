@@ -2,19 +2,59 @@
 
 body {
     background:#000;
-    color:#fff;
+    font-family: "Open Sans", OpenSans, sans-serif;
+    color:#545454;
+    font-size:16px;
+    padding:0;
+    margin:0;
 }
+
+body *, body *:before, body *:after{
+    box-sizing: border-box;
+}
+
+.titleFont2, h1, h2, h3, h4, h5, h6 {
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    font-weight: normal;
+    color: #222;
+}
+
+
 
 #home {}
 
-#createProfile {background:#000;}
+#createProfile {
+    background:#000;
+    background-image: url("../img/bg.png");
+}
 
 #container {
+    width:100%;
     position:relative;
     margin:0;
     padding:0;
 }
 
+.content{
+    padding: 0 20px 100px;
+    width:100%;
+    margin:auto;
+    max-width:300px;
+}
+
+
+.progress{
+    background: #043C63;
+    width: 100%;
+    text-align: center;
+    padding: 15px 0 15px;
+}
+
+.progress img{
+    margin: auto;
+    height: 48px;
+    width:254px;
+}
 ul {margin:0px;padding:0;}
 
 ul li  {
@@ -23,20 +63,44 @@ ul li  {
     padding:0;
 }
 
-input  {
+label{
+    padding: 20px 0 2px;
+    height: 16px;
+    display: block;
+}
+input, select, button  {
     width:100%;
     margin:0;
+    height: 40px;
+    border-radius: 3px;
+    width: 100%;
+    max-width:300px;
+    border: none;
 }
 
-button {
-    border:2px solid deepskyblue;
-    color:#fff;
-    text-align: center;
-    border-radius: 5px;
-    padding: 8px 15px;
-    width:200px;
-    display:block;
+input[type=text], select {
+    padding-left: 10px;
+}
+
+input[type=checkbox]{
+    text-align: left;
+}
+button{
+    font-size: 16px;
+    background:#043C63;
     margin:auto;
+    display:block;
+    font-famuily: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
 }
 
+
+/*helpers*/
+.group:after {
+    content: "";
+    display: table;
+    clear: both;
+}
 
