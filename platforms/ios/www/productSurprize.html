@@ -15,20 +15,23 @@
 
 <div id="container">
 
-    <div class="itemWrapper" style="border:2px solid blue">
-    <img src="" style="width:200px;background:blue;" />
-        {{ProdCat}}
-    <ul>
-        <li>{{Prodtitle}}</li>
-        <li>{{Desc}}</li>
-        <li>{{address}}</li>
-        <li>{{First}}</li>
-        <li>{{Last}}</li>
-    </ul>
-        {{/ProdCat}}
+    <div class="content">
+        <div class="itemWrapper" style="border:2px solid blue">
+            <img src="" style="width:200px;background:blue;" />
+            {{ProdCat}}
+            <ul>
+                <li>{{Prodtitle}}</li>
+                <li>{{Desc}}</li>
+                <li>{{address}}</li>
+                <li>{{First}}</li>
+                <li>{{Last}}</li>
+            </ul>
+            {{/ProdCat}}
+        </div>
+        <button id="shipButton">Ship Gifts</button>
+        <button id="returnToStart">Return To Start</button>
     </div>
 
-    <button id="returnToStart">Return To Start</button>
 </div>
 
 <!--LIBS -->
