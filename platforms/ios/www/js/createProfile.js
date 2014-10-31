@@ -187,6 +187,12 @@ function callOrchestrateInsert(data) {
 
 function setchoices() {
 
+    $("#shippingDepartment").on("click",function(){
+        document.location = "productSurprize.html";
+    });
+
+
+
 
 }
 
