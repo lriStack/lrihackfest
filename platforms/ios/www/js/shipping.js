@@ -41,6 +41,7 @@ function initHandlers() {
 
     $('#shipButton').on('click',function(){
         $('#shippingList').addClass('hidden');
+
        $('#shippingConfirm').removeClass('hidden');
     });
     $("#returnToStart").on("click",function(){
@@ -65,6 +66,5 @@ function getRecommendedProductsByDateRange(category) {
 };
 
 function addToProductList(products) {
-    //TODO: Kyle - Use this function to render the product list
-
+    template(products);
 };
