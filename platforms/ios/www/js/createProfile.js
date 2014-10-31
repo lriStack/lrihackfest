@@ -16,12 +16,31 @@ function deviceReady() {
 
 cateData = [];
 recommendedProducts = [];
+categoryPageCount = 1;
+apiKey = "s3mse6zmaersezz8nz62sjtz";
 
 function displayCategories(categoryData) {
 
     console.log(categoryData);
 
-    cateData = categoryData;
+    //Recursive until all are loaded
+    if(categoryData !== undefined && categoryData.categories.length > 0) {
+
+        //Log utility
+        $.each(categoryData.categories, function(index, value) {
+            console.log(JSON.stringify(categoryData.categories[index]));
+            //insert to orchestrate
+            callOrchestrateInsert(categoryData.categories[index]);
+        });
+
+        $.merge(cateData, categoryData.categories);
+        categoryPageCount++;
+        setTimeout(function() {GetCategories("", "", apiKey, "displayCategories", categoryPageCount)}, 1000);
+    }
+    else {
+        //Load is finished
+        $('body').append(template(cateData));
+    }
 }
 
 function addToProductList(products) {
@@ -38,12 +57,12 @@ function initHandlers() {
 
         var source = $("#yourInterestsList").html();
         var template = Handlebars.compile(source);
-        var apiKey = "s3mse6zmaersezz8nz62sjtz";
 
-        GetCategories("", "", apiKey, "displayCategories");
+
+        setTimeout(function() {GetCategories("", "", apiKey, "displayCategories", categoryPageCount)}, 1000);
 
         //        if (listFlag === 0) {
-                $('body').append(template(cateData));
+
         //        }
         //
 
@@ -59,16 +78,9 @@ function initHandlers() {
 
     }
 
-    function getRecommendedProductsFromCategory() {
-        var categories = cateData.categories;
-
-        $.each(categories, function(index, value) {
-            GetRecommendedProducts(value.name + "*", "", apiKey, "addToProductList");
-        });
-
-
+    function getRecommendedProductsFromCategory(category) {
+        GetProducts(value.name + "*", "(customerReviewAverage%3E4&customerReviewCount>10)", apiKey, "addToProductList");
     };
-
 
 
 
@@ -86,6 +98,39 @@ function initHandlers() {
         document.location = "productSurprize.html";
     });
 
+
+}
+
+
+
+function callOrchestrateInsert(data) {
+
+    var urlToCall = "http://localhost:8888/OrchestrateImport/insertCategory.php";
+    var dataToSend = new Object();
+
+ /*   dataToSend.id = data.id;
+
+    dataToSend.name = data.name;
+    */
+
+    dataToSend.data = data;
+
+    //var dataString = JSON.stringify(dataToSend);
+    var dataString = JSON.stringify(data);
+
+    $.ajax({ // ajax call starts
+        url: urlToCall,
+        data: dataString,
+        type: "POST",
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        success: function(response) {
+            console.log(response);
+        },
+        error: function(jqXHR, textStatus, errorThrown ) {
+            console.log(textStatus);
+        }
+    });
 
 }
 
