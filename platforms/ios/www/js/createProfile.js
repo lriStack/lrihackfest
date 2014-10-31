@@ -36,16 +36,42 @@ function initHandlers() {
 
     function yourInterests() {
 
-        var source = $("#yourInterestsList").html();
-        var template = Handlebars.compile(source);
+
         var apiKey = "s3mse6zmaersezz8nz62sjtz";
 
         GetCategories("", "", apiKey, "displayCategories");
+//
+//        //        if (listFlag === 0) {
+//                $('body').append(template(cateData));
+//        //        }
+//        //
 
-        //        if (listFlag === 0) {
-                $('body').append(template(cateData));
-        //        }
-        //
+
+        //list of clients
+        var refreshClients = function () {
+            $.when(cateData).done(showAllParentCat);
+        };
+        var showAllParentCat = function (templateInput) {
+            var source;
+            var template;
+            var path = 'Templates/categoryList.html'
+            $.ajax({
+                url: path,
+                cache: true,
+                success: function (data) {
+                    source = data;
+                    template = Handlebars.compile(source);
+                    $('#cateContainer').html(template(templateInput));
+                }
+            });
+        };
+
+        $(function () {
+
+            refreshClients();
+        });
+
+
 
 
         var values = [];
@@ -82,8 +108,8 @@ function initHandlers() {
 
     //MAKE ONLOAD
     $('#getData').click(function(){
-        yourInterests();
-        listFlag = 1;
+            yourInterests();
+            listFlag = 1;
 
     });
 
