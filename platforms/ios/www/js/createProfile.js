@@ -8,7 +8,7 @@ document.addEventListener('deviceready', deviceReady, false);
 
 function deviceReady() {
 
-    navigator.splashscreen.hide();
+   // navigator.splashscreen.hide();
 
     initHandlers();
 }
@@ -58,6 +58,7 @@ function initHandlers() {
         var source = $("#yourInterestsList").html();
         var template = Handlebars.compile(source);
 
+        //GetCategories("", "", apiKey, "displayCategories");
 
         setTimeout(function() {GetCategories("", "", apiKey, "displayCategories", categoryPageCount)}, 1000);
 
@@ -65,6 +66,32 @@ function initHandlers() {
 
         //        }
         //
+
+        //list of clients
+        var refreshClients = function () {
+            $.when(cateData).done(showAllParentCat);
+        };
+        var showAllParentCat = function (templateInput) {
+            var source;
+            var template;
+            var path = 'Templates/categoryList.html'
+            $.ajax({
+                url: path,
+                cache: true,
+                success: function (data) {
+                    source = data;
+                    template = Handlebars.compile(source);
+                    $('#cateContainer').html(template(templateInput));
+                }
+            });
+        };
+
+        $(function () {
+
+            refreshClients();
+        });
+
+
 
 
         var values = [];
@@ -84,14 +111,36 @@ function initHandlers() {
 
 
 
+    $('#createProfileNextBtn').on('click',function(){
+        location = "preference.html";
 
+    });
 
+    //MAKE ONLOAD
+    $('#getData').click(function(){
+            yourInterests();
+            listFlag = 1;
+
+    });
+
+    $('#preferenceNextBtn').click(function(){
+        location = "billing.html";
+    });
 
     $("#submitBtn").on("click", function () {
-        $("#pickList").show();
-        yourInterests();
-        listFlag = 1;
+        location = "confirmation.html";
 
+    });
+
+    var $billingAddressWrapper = $('#billingAddressWrapper');
+
+    $('#needBillingChkBox').on(' change', function(){
+
+        if($billingAddressWrapper.hasClass('hidden')){
+            $billingAddressWrapper.removeClass('hidden');
+        }else{
+            $billingAddressWrapper.addClass('hidden');
+        }
     });
 
     $("#suprizeBtn").on("click",function(){
@@ -132,7 +181,9 @@ function callOrchestrateInsert(data) {
         }
     });
 
-}
+    $("#returnToStart").on("click",function(){
+        document.location = "createProfile.html";
+    });
 
 function setchoices() {
 

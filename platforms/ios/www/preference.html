@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, target-densitydpi=device-dpi" />
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="css/global.css"/>
+    <meta name="msapplication-tap-highlight" content="no"/>
+    <title>LRI Hackfest Shop</title>
+</head>
+<body id="createProfile">
+
+<div id="container">
+
+
+
+<div id="preferenceView" >
+
+    <div class="progress"><img src="img/process2.png"></div>
+    <div class="content">
+        <h2>Your Preferences</h2>
+
+        <ul class="group">
+
+            <li><input type="checkbox" value="abcat0010000" name="options[]" class="categoryGrp">
+                Gift Ideas
+            </li>
+
+            <li><input type="checkbox" value="abcat0020001" name="options[]" class="categoryGrp">
+                Learning Toys
+            </li>
+
+            <li><input type="checkbox" value="abcat0020002" name="options[]" class="categoryGrp">
+                DVD Games
+            </li>
+
+            <li><input type="checkbox" value="abcat0020004" name="options[]" class="categoryGrp">
+                Unique Gifts
+            </li>
+
+            <li><input type="checkbox" value="abcat0100000" name="options[]" class="categoryGrp">
+                TV &amp; Home Theater
+            </li>
+
+            <li><input type="checkbox" value="abcat0101000" name="options[]" class="categoryGrp">
+                TVs
+            </li>
+
+            <li><input type="checkbox" value="abcat0101001" name="options[]" class="categoryGrp">
+                All Flat-Panel TVs
+            </li>
+
+            <li><input type="checkbox" value="abcat0101005" name="options[]" class="categoryGrp">
+                TV/DVD Combos
+            </li>
+
+            <li><input type="checkbox" value="abcat0102000" name="options[]" class="categoryGrp">
+                Blu-ray &amp; DVD Players
+            </li>
+
+            <li><input type="checkbox" value="abcat0102003" name="options[]" class="categoryGrp">
+                Blu-ray Players
+            </li>
+
+        </ul>
+
+        <button id="preferenceNextBtn">Next</button>
+
+
+    </div>
+
+</div>
+
+
+
+</div>
+
+
+<script id="yourInterestsList" type="text/x-handlebars-template">
+    <ul  class="group">
+        {{#categories}}
+        <li><input type="checkbox" value="{{id}}" name="options[]" class="categoryGrp"/>
+            {{name}}
+        </li>
+        {{/categories}}
+    </ul>
+</script>
+
+<!--LIBS -->
+<script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/handlebars-v1.3.0.js"></script>
+
+
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/bestBuyConnector.js"></script>
+<script type="text/javascript" src="js/createProfile.js"></script>
+
+
+
+<script type="text/javascript">
+    app.initialize();
+</script>
+</body>
+</html>
