@@ -24,75 +24,6 @@
     <div class="content">
         <h2>Your Preferences</h2>
 
-<<<<<<< HEAD
-        <ul>
-            <li>
-                <label class="subTitle">Gift Price Range</label>
-            </li>
-            <li>
-            <input id="minPrice" name="minPrice" class="price" type="text" placeholder="min" /> to
-            <input id="maxPrice" name="maxPrice" class="price" type="text" placeholder="max" />
-            </li>
-            <li>
-                <hr/>
-            </li>
-            <li class="section">
-                <label class="subTitle">Gift Cycle</label>
-            </li>
-            <li>
-                <label>
-                    <input id="giftCycleOnce" name="giftCycle" value="1" class="giftCycle" type="radio">
-                    Once only
-                </label>
-            </li>
-            <li>
-                <label>
-                    <input id="giftCycleWeekly" name="giftCycle" value="7" class="giftCycle" type="radio">
-                    Weekly
-                </label>
-            </li>
-            <li>
-                <label>
-                    <input id="giftCycleMonthly" name="giftCycle" value="30" class="giftCycle" type="radio">
-                    Montly
-                </label>
-            </li>
-            <li>
-                <label>
-                    <input id="giftCycleYearly" name="giftCycle" value="356" class="giftCycle" type="radio">
-                    Yearly
-                </label>
-            </li>
-            <li>
-                <hr/>
-            </li>
-            <li class="section">
-                <label class="subTitle">Which one describes you most?</label>
-                <br/>
-            <li>
-            <label>
-                <input id="personalityPopular" name="personality" value="sales" class="personality" type="radio">
-                I like items that are the talk of the town.
-            </label>
-            </li>
-            <li>
-                <label>
-                <input  id="personalityTested" name="personality" value="reviews"  class="personality" type="radio">
-                I like items that are tested and true.</label>
-            </li>
-            <li>
-            <label>
-                <input  id="personalityNew" name="personality" value="newest" class="personality" type="radio">
-                I like being the first to try things.
-            </label>
-            </li>
-            <li>
-                <hr/>
-            </li>
-
-        </ul>
-        <script id="yourInterestsList" type="text/x-handlebars-template">
-=======
         <ul class="group">
 
             <li><input type="checkbox" value="abcat0010000" name="options[]" class="categoryGrp">
@@ -118,7 +49,6 @@
             <li><input type="checkbox" value="abcat0101000" name="options[]" class="categoryGrp">
                 TVs
             </li>
->>>>>>> origin/master
 
             <li><input type="checkbox" value="abcat0101001" name="options[]" class="categoryGrp">
                 All Flat-Panel TVs
@@ -148,17 +78,6 @@
 
 
 </div>
-
-
-<script id="yourInterestsList" type="text/x-handlebars-template">
-    <ul  class="group">
-        {{#categories}}
-        <li><input type="checkbox" value="{{id}}" name="options[]" class="categoryGrp"/>
-            {{name}}
-        </li>
-        {{/categories}}
-    </ul>
-</script>
 
 <!--LIBS -->
 <script src="js/jquery-2.1.1.min.js"></script>

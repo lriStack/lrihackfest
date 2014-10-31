@@ -143,6 +143,12 @@ function initHandlers() {
     });
 
 
+    $("#shippingDepartment").on("click",function(){
+        document.location = "productSurprize.html";
+    });
+
+
+
 
 }
 
