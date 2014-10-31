@@ -13,7 +13,9 @@ function deviceReady() {
 
 function initHandlers() {
 
-      alert('test');
+    $("#returnToStart").on("click",function(){
+        document.location = "createProfile.html";
+    });
 }
 
 

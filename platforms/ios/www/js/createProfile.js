@@ -105,12 +105,6 @@ function initHandlers() {
 
     });
 
-    //MAKE ONLOAD
-    $('#getData').click(function(){
-            yourInterests();
-            listFlag = 1;
-
-    });
 
     $('#preferenceNextBtn').click(function(){
         location = "billing.html";
@@ -133,9 +127,20 @@ function initHandlers() {
     });
 
     $("#suprizeBtn").on("click",function(){
+
         document.location = "productSurprize.html";
     });
 
+
+    $("#returnToStart").on("click",function(){
+        document.location = "createProfile.html";
+    });
+
+
+
+    $("#shippingDepartment").on("click",function(){
+        document.location = "productSurprize.html";
+    });
 
 }
 
@@ -169,17 +174,6 @@ function callOrchestrateCategoryInsert(data) {
             console.log(textStatus);
         }
     });
-
-    $("#returnToStart").on("click",function(){
-        document.location = "createProfile.html";
-    });
-
-function setchoices() {
-
-    $("#shippingDepartment").on("click",function(){
-        document.location = "productSurprize.html";
-    });
-
 
 
 
