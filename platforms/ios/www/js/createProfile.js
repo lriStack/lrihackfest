@@ -100,6 +100,7 @@ function initHandlers() {
 
     $('#createProfileNextBtn').on('click',function(){
         var data = $('#createForm').serializeArray();
+        callOrchestrateCategoryInsert(data);
         location = "preference.html";
 
     });
@@ -151,6 +152,11 @@ function initHandlers() {
 
 
 function callOrchestrateCategoryInsert(data) {
+
+    var dataInsert = new Object();
+
+               data.fName = "Kyle";
+    data.email = "test@test.com";
 
     var urlToCall = "http://www.andremcdonald.com/insertCategory.php";
     var dataToSend = new Object();
