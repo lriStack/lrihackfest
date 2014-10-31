@@ -53,8 +53,6 @@ function initHandlers() {
 
     function yourInterests() {
 
-        var source = $("#yourInterestsList").html();
-        var template = Handlebars.compile(source);
 
         //TODO: Kyle - This is commented as we were going to load every category dynamically but there over 4500!!! - Hence hardcode
         //setTimeout(function() {GetCategories("", "", apiKey, "displayCategories", categoryPageCount)}, 1000);

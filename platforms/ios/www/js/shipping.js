@@ -25,10 +25,6 @@ function getRecommendedProductsByReviewAverageAndCount(category) {
 };
 
 
-function getRecommendedProductsByPriceRange(category, lowPrice, highPrice) {
-    GetProducts(value.name + "*", "(customerReviewAverage%3E4&customerReviewCount>10)", apiKey, "addToProductList");
-};
-
 function getRecommendedProductsByDateRange(category) {
     GetProducts(value.name + "*", "(customerReviewAverage%3E4&customerReviewCount>10)", apiKey, "addToProductList");
 };
