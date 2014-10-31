@@ -19,6 +19,10 @@ body *, body *:before, body *:after{
     color: #222;
 }
 
+hr{
+    background-color: #A7A7A7; height: 1px; border: 0;
+
+}
 
 
 #home {}
@@ -39,7 +43,7 @@ body *, body *:before, body *:after{
     padding: 0 20px 100px;
     width:100%;
     margin:auto;
-    max-width:300px;
+    max-width:400px;
 }
 
 
@@ -63,7 +67,7 @@ ul li  {
     padding:0;
 }
 
-label{
+.userProfile label, .billingView label{
     padding: 20px 0 2px;
     height: 16px;
     display: block;
@@ -71,22 +75,35 @@ label{
 
 
 
+.preferenceView li{
+    display: block;
+    padding-bottom: 20px;
+}
+
+
+.preferenceView li.section{
+
+}
+
+.preferenceView .subTitle{
+    font-size: 18px;
+    color: #333;
+}
 
 input, select, button  {
     width:100%;
     margin:0;
     height: 40px;
     border-radius: 3px;
-    width: 100%;
-    max-width:300px;
+    max-width:400px;
     border: none;
 }
 
-input[type=text], select {
+input[type=text], input[type=email], select {
     padding-left: 10px;
 }
 
-input[type=checkbox]{
+input[type=checkbox], input[type=radio]{
     text-align: left;
     width: auto;
     margin-right: 10px;
@@ -102,6 +119,11 @@ button{
     text-transform: uppercase;
     text-align: center;
     color: #fff;
+}
+
+.price{
+    display: inline-block;
+    width: 50px;
 }
 
 .billingAddressWrapper{

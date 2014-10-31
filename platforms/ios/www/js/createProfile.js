@@ -8,7 +8,7 @@ document.addEventListener('deviceready', deviceReady, false);
 
 function deviceReady() {
 
-    navigator.splashscreen.hide();
+   // navigator.splashscreen.hide();
 
     initHandlers();
 }
@@ -59,43 +59,41 @@ function initHandlers() {
 
     }
 
-    function getRecommendedProductsFromCategory() {
-        var categories = cateData.categories;
-
-        $.each(categories, function(index, value) {
-            GetRecommendedProducts(value.name + "*", "", apiKey, "addToProductList");
-        });
-
-
-    };
-
-
+//    function getRecommendedProductsFromCategory() {
+//        var categories = cateData.categories;
+//
+//        $.each(categories, function(index, value) {
+//            GetRecommendedProducts(value.name + "*", "", apiKey, "addToProductList");
+//        });
+//
+//
+//    };
 
 
 
+//    alert("sdfs");
 
 
 
-    $('#createProfileNextBtn').on('click', function(){
-
-        yourInterests();
-        listFlag = 1;
-        $('#preferenceView').removeClass('hidden');
-        $('#signUpView').addClass('hidden');
+    $('#createProfileNextBtn').on('click',function(){
+        location = "preference.html";
 
     });
 
+    //MAKE ONLOAD
+    $('#getData').click(function(){
+        yourInterests();
+        listFlag = 1;
 
-    $('#preferenceNextBtn').on('click', function(){
-        $('#billingView').removeClass('hidden');
-        $('#preferenceView').addClass('hidden');
+    });
 
+    $('#preferenceNextBtn').click(function(){
+        location = "billing.html";
     });
 
     $("#submitBtn").on("click", function () {
-        $('#confirmView').removeClass('hidden');
-        $('#billingView').addClass('hidden');
-        $('#sentEmail').text($('#email').val());
+        location = "confirmation.html";
+
     });
 
     var $billingAddressWrapper = $('#billingAddressWrapper');
@@ -109,13 +107,15 @@ function initHandlers() {
         }
     });
 
-        $("#suprizeBtn").on("click",function(){
-            document.location = "productSurprize.html";
-        });
+    $("#suprizeBtn").on("click",function(){
+        document.location = "productSurprize.html";
+    });
 
-}
 
-function setchoices() {
+    $("#returnToStart").on("click",function(){
+        document.location = "createProfile.html";
+    });
+
 
 
 }
