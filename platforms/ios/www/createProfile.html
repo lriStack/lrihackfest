@@ -20,17 +20,17 @@
             <div class="progress"><img src="img/process1.png"></div>
             <div class="content">
                 <h1>Sign Up</h1>
-
+<form id="createForm">
                 <ul id="userProfile"  class="userProfile">
                     <li><label>First Name</label><br/>
-                        <input type="text" id="fName" value="Andre"></li>
+                        <input type="text" id="fName" name="fName" value="Andre"></li>
                     <li><label>Last Name</label> <br/>
-                        <input type="text" id="lName" value="McDonald"></li>
+                        <input type="text" id="lName" name="lName" value="McDonald"></li>
                     <li><label>Email</label> <br/>
-                        <input type="email" id="email" value="dre@luxuryretreats.com"></li>
+                        <input type="email" id="email" name="email" value="dre@luxuryretreats.com"></li>
 
                     <li><label>Address</label> <br/>
-                        <input type="text" id="Address" value="123 Hackit Ave"></li>
+                        <input type="text" id="Address" name="address" value="123 Hackit Ave"></li>
                     <li><label>State</label> <br/>
                         <select name="State">
 
@@ -141,9 +141,10 @@
                         </select>
 
                     <li><label>Zipcode</label> <br/>
-                        <input type="text" id="zipcode" value="11590">
+                        <input type="text" id="zipcode" name="zip" value="11590">
                     </li>
                 </ul>
+</form>
                 <button id="createProfileNextBtn" >Next</button>
             </div>
 

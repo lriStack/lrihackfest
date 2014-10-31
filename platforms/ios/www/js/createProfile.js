@@ -99,16 +99,22 @@ function initHandlers() {
 
 
     $('#createProfileNextBtn').on('click',function(){
+        var data = $('#createForm').serializeArray();
         location = "preference.html";
 
     });
 
 
     $('#preferenceNextBtn').click(function(){
+
+        var data = $('form').serializeArray();
         location = "billing.html";
     });
 
     $("#submitBtn").on("click", function () {
+
+        var data = $('#billingForm').serializeArray();
+
         location = "confirmation.html";
 
     });
