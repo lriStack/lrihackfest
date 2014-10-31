@@ -15,31 +15,38 @@
 
 <div id="container">
     <div class="shippingView">
+        <div class="progress"><h1>BEST BUY LOGISTICS CRM</h1></div>
         <div class="content">
 
-            <h2>Shipping List</h2>
+            <div id="shippingList">
+                <h2>Shipping List</h2>
+                <ul id="list">
 
-            <button id="generateButton">Generate Shipping List</button>
+                <script id="giftTemplate" type="text/x-handlebars-template">
+        {{#client}}
+                            <li>{{FirstName}} {{LastName}}</li>
 
-            <ul id="list">
+                    <li>{{Address}}</li>
+                            <li>{{Prodtitle}}</li>
+                            <li>{{ProductId}}</li>
 
-            <script id="giftTemplate" type="text/x-handlebars-template">
-    {{#client}}
-                        <li>{{FirstName}} {{LastName}}</li>
-
-                <li>{{Address}}</li>
-                        <li>{{Prodtitle}}</li>
-                        <li>{{ProductId}}</li>
-
-                <li><img class="shipImg" src="<li>{{ImgUrl}}"/></li>
-                        <li><hr/></li>
-                {{/client}}
-            </script>
-            </ul>
+                    <li><img class="shipImg" src="<li>{{ImgUrl}}"/></li>
+                            <li><hr/></li>
+                    {{/client}}
+                </script>
+                </ul>
 
 
-            <button id="shipButton">Ship Gifts</button>
-            <button id="returnToStart">Return To Start</button>
+                <button id="shipButton">Ship Gifts</button>
+
+
+            </div>
+
+            <div id="shippingConfirm" class="hidden">
+                <h2>Today's Gifts are processed for Shipping</h2>
+                <p>Clients will recieve a shipping confirmation.</p>
+                <button id="returnToStart">Return To Start</button>
+            </div>
         </div>
     </div>
 </div>

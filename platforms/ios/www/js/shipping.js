@@ -36,8 +36,13 @@ function initHandlers() {
 
     var html = template(context);
 
+
     $('#list').html(html);
 
+    $('#shipButton').on('click',function(){
+        $('#shippingList').addClass('hidden');
+       $('#shippingConfirm').removeClass('hidden');
+    });
     $("#returnToStart").on("click",function(){
         document.location = "createProfile.html";
     });

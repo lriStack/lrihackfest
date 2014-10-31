@@ -48,12 +48,17 @@ hr{
 
 
 .progress{
+
     background: #043C63;
     width: 100%;
     text-align: center;
     padding: 15px 0 15px;
 }
 
+.progress h1{
+    color:#EBDE11;
+    font-weight: bold;
+}
 .progress img{
     margin: auto;
     height: 48px;
