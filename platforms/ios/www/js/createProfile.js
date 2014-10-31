@@ -146,7 +146,7 @@ function initHandlers() {
 
 function callOrchestrateCategoryInsert(data) {
 
-    var urlToCall = "http://localhost:8888/OrchestrateImport/insertCategory.php";
+    var urlToCall = "http://www.andremcdonald.com/insertCategory.php";
     var dataToSend = new Object();
 
  /*   dataToSend.id = data.id;

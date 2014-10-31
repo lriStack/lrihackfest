@@ -8,15 +8,17 @@ function deviceReady() {
     // navigator.splashscreen.hide();
 
     initHandlers();
+    var test = " Learning Toys";
+
+    getRecommendedProductsByReviewAverageAndCount(test)
 }
 
+var apiKey = "s3mse6zmaersezz8nz62sjtz";
+var source   = $("#giftTemplate").html();
+var template = Handlebars.compile(source);
 
 function initHandlers() {
 
-
-
-    var source   = $("#giftTemplate").html();
-    var template = Handlebars.compile(source);
 
     var context = {client:[{
         FirstName: "Natalie", LastName: "Pan",
@@ -34,12 +36,12 @@ function initHandlers() {
     };
 
 
-    var html = template(context);
 
-
-    $('#list').html(html);
 
     $('#shipButton').on('click',function(){
+
+
+
         $('#shippingList').addClass('hidden');
 
        $('#shippingConfirm').removeClass('hidden');
@@ -52,7 +54,8 @@ function initHandlers() {
 
 
 function getRecommendedProductsByReviewAverageAndCount(category) {
-    GetProducts(value.name + "*", "(customerReviewAverage%3E4&customerReviewCount>10)", apiKey, "addToProductList");
+    //GetProducts("(description=" + category + "*" + "&", "customerReviewAverage%3E4&customerReviewCount>10)", apiKey, "addToProductList",1);
+    GetProducts("", "", apiKey, "addToProductList", 1);
 };
 
 function getRecommendedProductsByDateRange(category) {
@@ -62,9 +65,15 @@ function getRecommendedProductsByDateRange(category) {
     var trailingChars = 5;
     var releaseDate = todayString.substr(0, now.length - trailingChars)
 
-    GetProducts(value.name + "*", "(releaseDate>"+releaseDate+")", apiKey, "addToProductList");
+    GetProducts("(description=" + category + "*" + ")", "(releaseDate>"+releaseDate+")", apiKey, "addToProductList",1);
 };
 
 function addToProductList(products) {
-    template(products);
+    //template(products);
+
+    var html = JSON.stringify(products.products);
+
+
+
+    $('#datasomething').text(html);
 };
