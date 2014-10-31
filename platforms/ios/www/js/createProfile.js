@@ -19,6 +19,7 @@ recommendedProducts = [];
 categoryPageCount = 1;
 apiKey = "s3mse6zmaersezz8nz62sjtz";
 
+//Currently unused but works
 function displayCategories(categoryData) {
 
     console.log(categoryData);
@@ -30,7 +31,7 @@ function displayCategories(categoryData) {
         $.each(categoryData.categories, function(index, value) {
             console.log(JSON.stringify(categoryData.categories[index]));
             //insert to orchestrate
-            callOrchestrateInsert(categoryData.categories[index]);
+            callOrchestrateCategoryInsert(categoryData.categories[index]);
         });
 
         $.merge(cateData, categoryData.categories);
@@ -43,9 +44,6 @@ function displayCategories(categoryData) {
     }
 }
 
-function addToProductList(products) {
-    $.merge(products, recommendedProducts);
-};
 
 
 function initHandlers() {
@@ -58,14 +56,8 @@ function initHandlers() {
         var source = $("#yourInterestsList").html();
         var template = Handlebars.compile(source);
 
-        //GetCategories("", "", apiKey, "displayCategories");
-
-        setTimeout(function() {GetCategories("", "", apiKey, "displayCategories", categoryPageCount)}, 1000);
-
-        //        if (listFlag === 0) {
-
-        //        }
-        //
+        //TODO: Kyle - This is commented as we were going to load every category dynamically but there over 4500!!! - Hence hardcode
+        //setTimeout(function() {GetCategories("", "", apiKey, "displayCategories", categoryPageCount)}, 1000);
 
         //list of clients
         var refreshClients = function () {
@@ -105,9 +97,6 @@ function initHandlers() {
 
     }
 
-    function getRecommendedProductsFromCategory(category) {
-        GetProducts(value.name + "*", "(customerReviewAverage%3E4&customerReviewCount>10)", apiKey, "addToProductList");
-    };
 
 
 
@@ -152,7 +141,7 @@ function initHandlers() {
 
 
 
-function callOrchestrateInsert(data) {
+function callOrchestrateCategoryInsert(data) {
 
     var urlToCall = "http://localhost:8888/OrchestrateImport/insertCategory.php";
     var dataToSend = new Object();
