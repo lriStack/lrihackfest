@@ -106,10 +106,15 @@ function initHandlers() {
 
 
     $('#preferenceNextBtn').click(function(){
+
+        var data = $('form').serializeArray();
         location = "billing.html";
     });
 
     $("#submitBtn").on("click", function () {
+
+        var data = $('#billingForm').serializeArray();
+
         location = "confirmation.html";
 
     });
