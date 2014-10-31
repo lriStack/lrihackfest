@@ -13,6 +13,31 @@ function deviceReady() {
 
 function initHandlers() {
 
+
+
+    var source   = $("#giftTemplate").html();
+    var template = Handlebars.compile(source);
+
+    var context = {client:[{
+        FirstName: "Natalie", LastName: "Pan",
+        Address: "123 Seaport",
+        ImageUrl: "test.jpg",
+        Prodtitle:"iPhone 6",
+        ProductId: "ISBN 123"
+    },
+        {
+        FirstName: "Andre", LastName: "McD",
+        Address: "333 Boston",
+        ImageUrl: "test.jpg",
+        Prodtitle:"Tablet",
+        ProductId: "ISBN 1234"}]
+    };
+
+
+    var html = template(context);
+
+    $('#list').html(html);
+
     $("#returnToStart").on("click",function(){
         document.location = "createProfile.html";
     });
