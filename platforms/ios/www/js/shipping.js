@@ -41,6 +41,7 @@ function initHandlers() {
 
     $('#shipButton').on('click',function(){
         $('#shippingList').addClass('hidden');
+
        $('#shippingConfirm').removeClass('hidden');
     });
     $("#returnToStart").on("click",function(){
@@ -54,12 +55,16 @@ function getRecommendedProductsByReviewAverageAndCount(category) {
     GetProducts(value.name + "*", "(customerReviewAverage%3E4&customerReviewCount>10)", apiKey, "addToProductList");
 };
 
-
 function getRecommendedProductsByDateRange(category) {
-    GetProducts(value.name + "*", "(customerReviewAverage%3E4&customerReviewCount>10)", apiKey, "addToProductList");
+    var today = new Date();
+    var todayString = today.toISOString();
+
+    var trailingChars = 5;
+    var releaseDate = todayString.substr(0, now.length - trailingChars)
+
+    GetProducts(value.name + "*", "(releaseDate>"+releaseDate+")", apiKey, "addToProductList");
 };
 
 function addToProductList(products) {
-    //TODO: Kyle - Use this function to render the product list
-
+    template(products);
 };
