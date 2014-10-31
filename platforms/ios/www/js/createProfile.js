@@ -99,6 +99,7 @@ function initHandlers() {
 
 
     $('#createProfileNextBtn').on('click',function(){
+        var data = $('#createForm').serializeArray();
         location = "preference.html";
 
     });
