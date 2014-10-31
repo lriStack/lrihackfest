@@ -121,6 +121,10 @@ button{
     color: #fff;
 }
 
+.shippingView .shipImg{
+    width: 100px;
+    height: auto;
+}
 .price{
     display: inline-block;
     width: 50px;

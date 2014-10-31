@@ -14,21 +14,34 @@
 <body id="createProfile">
 
 <div id="container">
+    <div class="shippingView">
+        <div class="content">
 
-    <div class="itemWrapper" style="border:2px solid blue">
-    <img src="" style="width:200px;background:blue;" />
-        {{ProdCat}}
-    <ul>
-        <li>{{Prodtitle}}</li>
-        <li>{{Desc}}</li>
-        <li>{{address}}</li>
-        <li>{{First}}</li>
-        <li>{{Last}}</li>
-    </ul>
-        {{/ProdCat}}
+            <h2>Shipping List</h2>
+
+            <button id="generateButton">Generate Shipping List</button>
+
+            <ul id="list">
+
+            <script id="giftTemplate" type="text/x-handlebars-template">
+    {{#client}}
+                        <li>{{FirstName}} {{LastName}}</li>
+
+                <li>{{Address}}</li>
+                        <li>{{Prodtitle}}</li>
+                        <li>{{ProductId}}</li>
+
+                <li><img class="shipImg" src="<li>{{ImgUrl}}"/></li>
+                        <li><hr/></li>
+                {{/client}}
+            </script>
+            </ul>
+
+
+            <button id="shipButton">Ship Gifts</button>
+            <button id="returnToStart">Return To Start</button>
+        </div>
     </div>
-
-
 </div>
 
 <!--LIBS -->
