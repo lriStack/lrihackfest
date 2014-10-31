@@ -1,5 +1,5 @@
 /**
- * Created by andremcdonald on 14-10-29.
+ * Created by andremcdonald on 14-10-30.
  */
 
 
@@ -16,17 +16,34 @@ function deviceReady() {
 
 cateData = [];
 recommendedProducts = [];
+categoryPageCount = 1;
+apiKey = "s3mse6zmaersezz8nz62sjtz";
 
+//Currently unused but works
 function displayCategories(categoryData) {
 
     console.log(categoryData);
 
-    cateData = categoryData;
+    //Recursive until all are loaded
+    if(categoryData !== undefined && categoryData.categories.length > 0) {
+
+        //Log utility
+        $.each(categoryData.categories, function(index, value) {
+            console.log(JSON.stringify(categoryData.categories[index]));
+            //insert to orchestrate
+            callOrchestrateCategoryInsert(categoryData.categories[index]);
+        });
+
+        $.merge(cateData, categoryData.categories);
+        categoryPageCount++;
+        setTimeout(function() {GetCategories("", "", apiKey, "displayCategories", categoryPageCount)}, 1000);
+    }
+    else {
+        //Load is finished
+        $('body').append(template(cateData));
+    }
 }
 
-function addToProductList(products) {
-    $.merge(products, recommendedProducts);
-};
 
 
 function initHandlers() {
@@ -36,16 +53,11 @@ function initHandlers() {
 
     function yourInterests() {
 
+        var source = $("#yourInterestsList").html();
+        var template = Handlebars.compile(source);
 
-        var apiKey = "s3mse6zmaersezz8nz62sjtz";
-
-        GetCategories("", "", apiKey, "displayCategories");
-//
-//        //        if (listFlag === 0) {
-//                $('body').append(template(cateData));
-//        //        }
-//        //
-
+        //TODO: Kyle - This is commented as we were going to load every category dynamically but there over 4500!!! - Hence hardcode
+        //setTimeout(function() {GetCategories("", "", apiKey, "displayCategories", categoryPageCount)}, 1000);
 
         //list of clients
         var refreshClients = function () {
@@ -85,19 +97,6 @@ function initHandlers() {
 
     }
 
-//    function getRecommendedProductsFromCategory() {
-//        var categories = cateData.categories;
-//
-//        $.each(categories, function(index, value) {
-//            GetRecommendedProducts(value.name + "*", "", apiKey, "addToProductList");
-//        });
-//
-//
-//    };
-
-
-
-//    alert("sdfs");
 
 
 
@@ -138,10 +137,44 @@ function initHandlers() {
     });
 
 
+}
+
+
+
+function callOrchestrateCategoryInsert(data) {
+
+    var urlToCall = "http://localhost:8888/OrchestrateImport/insertCategory.php";
+    var dataToSend = new Object();
+
+ /*   dataToSend.id = data.id;
+
+    dataToSend.name = data.name;
+    */
+
+    dataToSend.data = data;
+
+    //var dataString = JSON.stringify(dataToSend);
+    var dataString = JSON.stringify(data);
+
+    $.ajax({ // ajax call starts
+        url: urlToCall,
+        data: dataString,
+        type: "POST",
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        success: function(response) {
+            console.log(response);
+        },
+        error: function(jqXHR, textStatus, errorThrown ) {
+            console.log(textStatus);
+        }
+    });
+
     $("#returnToStart").on("click",function(){
         document.location = "createProfile.html";
     });
 
+function setchoices() {
 
     $("#shippingDepartment").on("click",function(){
         document.location = "productSurprize.html";
